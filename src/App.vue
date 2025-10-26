@@ -53,7 +53,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-
 /* ========== Theme Shell ========== */
 .home {
   --panel: #12141a;
@@ -68,7 +67,6 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, 'Helvetica Neue', Arial;
 }
 
-/* Limit content width to avoid “packed” feel */
 .container {
   width: min(1200px, 100%);
   margin-inline: auto;
@@ -126,7 +124,7 @@ body {
 /* ===== Header Responsive ===== */
 @media (max-width: 640px) {
   .header {
-    margin-bottom: 24px; /* 少し余白を詰める */
+    margin-bottom: 24px;
     gap: 6px;
   }
 
@@ -135,19 +133,19 @@ body {
   }
 
   .title {
-    font-size: 1.4rem;     /* 30px → 22px */
+    font-size: 1.4rem;
     gap: 4px;
     letter-spacing: 0.8px;
   }
 
   .poke-icon {
-    width: 1em;          /* 少し小さく */
+    width: 1em;
     height: 1em;
     transform: translateY(0.05em);
   }
 
   .subtitle {
-    font-size: 11.5px;   /* 13px → 11.5px */
+    font-size: 11.5px;
     margin-top: 4px;
     line-height: 1.3;
   }
@@ -162,7 +160,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 0.75rem;
-  background: rgba(15, 19, 32, 0.85); /* 背景を半透明にしてぼかす */
+  background: rgba(15, 19, 32, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(110, 168, 255, 0.15);
@@ -209,21 +207,21 @@ body.scrolled .search-row {
     flex-direction: column;
     align-items: stretch;
     gap: 0.75rem;
-    padding: 12px 14px;       /* 余白少し広げて押しやすく */
-    min-height: 56px;         /* 行の高さを確保 */
+    padding: 12px 14px;
+    min-height: 56px;
   }
 
   .search {
     width: 100%;
     max-width: none;
-    font-size: 16px;          /* ★ iOSのズーム防止 */
+    font-size: 16px;
     line-height: 1.3;
-    padding: 12px 14px;       /* タップ領域を広く */
+    padding: 12px 14px;
     border-radius: 12px;
   }
 
   .search::placeholder {
-    font-size: 15px;          /* プレースホルダーも見やすく */
+    font-size: 15px;
     opacity: 0.8;
   }
 
@@ -231,7 +229,7 @@ body.scrolled .search-row {
     order: -1;
     text-align: center;
     margin-top: 4px;
-    font-size: 1rem;          /* 少し文字を大きく */
+    font-size: 1rem;
   }
 }
 
@@ -245,8 +243,8 @@ html, body {
 /* ========== No Result (中央表示) ========== */
 .no-result {
   display: grid;
-  place-items: center;         /* 上下左右の中央 */
-  min-height: 60vh;            /* 画面中央に見える高さ確保 */
+  place-items: center;
+  min-height: 60vh;
   color: #ff6b6b;
   font-size: 1.25rem;
   font-weight: 600;
@@ -258,12 +256,12 @@ html, body {
 /* ===== No Result (スマホ用) ===== */
 @media (max-width: 640px) {
   .no-result {
-    min-height: 50vh;            /* 縦を少し圧縮して見切れ防止 */
-    font-size: 1rem;             /* 1.25rem → 1rem に縮小 */
-    line-height: 1.4;            /* 行間をやや詰める */
-    letter-spacing: 0.3px;       /* 詰めても読みやすい */
-    padding: 0 1rem;             /* 横の余白で中央寄せを維持 */
-    text-shadow: 0 0 4px rgba(255,107,107,0.2); /* 光をさらに控えめに */
+    min-height: 50vh;
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    padding: 0 1rem;
+    text-shadow: 0 0 4px rgba(255,107,107,0.2);
   }
 }
 @keyframes fadeIn {
@@ -290,6 +288,7 @@ html, body {
     0 10px 30px rgba(0,0,0,.4),
     inset 0 0 0 1px rgba(255,255,255,.06);
   transition: transform .15s ease;
+  cursor: pointer;
 }
 .card:hover { transform: translateY(-2px); }
 
@@ -312,7 +311,7 @@ html, body {
 /* ===== Card Frame Responsive ===== */
 @media (max-width: 640px) {
   .card-frame {
-    padding: 10px;          /* 14px → 10px に調整 */
+    padding: 10px;
   }
 }
 
@@ -330,23 +329,23 @@ html, body {
 /* ========== Card Header Responsive (横並び維持) ========== */
 @media (max-width: 640px) {
   .card-header {
-    justify-content: space-between; /* 横のままバランスを維持 */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 6px;
   }
 
   .card-header .name {
-    font-size: 14px;          /* 少し小さくして詰まり防止 */
-    max-width: 70%;           /* 長い名前がはみ出さないように */
+    font-size: 14px;
+    max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;  /* 長い名前は「…」で省略 */
+    text-overflow: ellipsis;
   }
 
   .card-header .hp {
-    font-size: 13px;          /* バランスよく縮小 */
+    font-size: 13px;
     color: var(--gold);
-    flex-shrink: 0;           /* HPが潰れないように固定 */
+    flex-shrink: 0;
   }
 }
 
@@ -414,9 +413,9 @@ html, body {
   }
 
   .type {
-    font-size: 11px;          /* 少し小さく */
-    padding: 3px 6px;         /* コンパクトに */
-    border-radius: 8px;       /* 丸みを少し抑えると詰まりにくい */
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 8px;
   }
 
   /* タグが2段になったときの隙間を詰める */
@@ -470,19 +469,19 @@ html, body {
   .stats { gap: 3px; }
 
   .stat {
-    grid-template-columns: 28px 1fr; /* ラベル幅を少し詰める */
+    grid-template-columns: 28px 1fr;
     gap: 3px;
-    min-width: 0;                    /* はみ出し防止 */
+    min-width: 0;
   }
 
   .stat label {
-    font-size: 10px;                 /* 11px -> 10px */
+    font-size: 10px;
     line-height: 1.2;
-    white-space: nowrap;             /* 改行で崩れないように */
+    white-space: nowrap;
   }
 
   .bar {
-    height: 6px;                     /* 8px -> 6px で密度UP */
+    height: 6px;
     border-radius: 999px;
     overflow: hidden;
   }
@@ -507,7 +506,7 @@ html, body {
 /* ========== Responsive tweaks ========== */
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2列固定 */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: .8rem;
   }
 }
@@ -519,7 +518,6 @@ html, body {
   align-items: center;
   margin: 48px 0 8px;
   gap: 12px;
-  /* セクションをうっすら区切る */
   position: relative;
 }
 .actions::before {
@@ -610,9 +608,9 @@ html, body {
   .btn { 
     width: 100%;
     min-width: 0;
-    font-size: 14px;         /* ズーム防止 & 可読性キープ */
+    font-size: 14px;
     line-height: 1.3;
-    padding: 12px 14px;      /* ←少しだけ縮めて自然に */
+    padding: 12px 14px;
     border-radius: 12px;
     gap: 0.6rem;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -632,7 +630,6 @@ html, body {
   }
 }
 /* ====== Modal ====== */
-/* 既存のfadeを強化：ブラーも一緒に */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .22s ease, backdrop-filter .22s ease;
 }
@@ -655,15 +652,12 @@ html, body {
   transform: translateY(8px) scale(.98);
 }
 
-/* 中の要素に軽い余韻（画像を少し遅らせて出す） */
 .pop-enter-active.modal .modal-hero img { transition: transform .28s ease, opacity .28s ease; }
 .pop-enter-from.modal .modal-hero img { transform: translateY(6px); opacity: 0; }
 
-/* ステータス一覧もほんのり立ち上がり */
 .kv li { transition: transform .18s ease, opacity .18s ease; }
 .pop-enter-from.modal .kv li { transform: translateY(4px); opacity: 0; }
 .pop-enter-to.modal   .kv li { transform: translateY(0);   opacity: 1; }
-/* ささやかな段階的表示（任意） */
 .pop-enter-to.modal .kv li:nth-child(1){ transition-delay: 20ms; }
 .pop-enter-to.modal .kv li:nth-child(2){ transition-delay: 40ms; }
 .pop-enter-to.modal .kv li:nth-child(3){ transition-delay: 60ms; }
@@ -671,7 +665,6 @@ html, body {
 .pop-enter-to.modal .kv li:nth-child(5){ transition-delay:100ms; }
 .pop-enter-to.modal .kv li:nth-child(6){ transition-delay:120ms; }
 
-/* 低速・省モーション対応 */
 @media (prefers-reduced-motion: reduce) {
   .fade-enter-active, .fade-leave-active,
   .pop-enter-active, .pop-leave-active,
@@ -684,13 +677,13 @@ html, body {
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,.6);
-  display: grid; place-items: center;   /* 初期はgridでもOK。SPで上書き */
+  display: grid; place-items: center;
   padding: 16px;
   z-index: 50;
 }
 
 .modal {
-  position: relative;                  /* ×ボタンなどの基準 */
+  position: relative;
   width: min(920px, 96vw);
   background: #10131b;
   color: var(--text);
@@ -736,7 +729,6 @@ html, body {
 
 .modal-actions { display: flex; justify-content: flex-end; margin-top: 12px; }
 
-/* タブレット以上 */
 @media (min-width: 768px) {
   .modal-hero img { height: 300px; width: 300px; }
   .modal-header { padding-right: 32px; text-align: center; }
@@ -767,9 +759,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100dvh;   /* 新しい端末向け */
-    height: 100svh;       /* iOS向けセーフティ */
-    overflow: auto;       /* はみ出し時の保険 */
+    min-height: 100dvh;
+    height: 100svh;
+    overflow: auto;
   }
 
   .modal {
@@ -777,15 +769,14 @@ html, body {
     padding: 12px;
     border-radius: 12px;
     max-height: calc(100dvh - 32px);
-    overflow: auto;       /* 中だけスクロール */
-    margin: auto;         /* フォールバックで中央寄せ */
+    overflow: auto;
+    margin: auto;
   }
 
   .modal-hero img {
     width: 55%;
     height: auto;
   }
-   /* ステータス一覧 */
   .kv {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
@@ -794,7 +785,7 @@ html, body {
   .kv li {
     padding: 6px 8px;
     border-radius: 6px;
-    font-size: 13px;         /* 少し小さく */
+    font-size: 13px;
   }
 
   .kv b {
@@ -805,7 +796,6 @@ html, body {
     font-size: 13px;
   }
 
-  /* 見出しブロックも少し詰める */
   .abilities, .moves {
     padding: 8px;
   }
@@ -819,6 +809,4 @@ html, body {
     gap: 4px;
   }
 }
-
-
 </style>
