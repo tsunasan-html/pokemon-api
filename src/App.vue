@@ -731,7 +731,7 @@ html, body {
 
 @media (min-width: 768px) {
   .modal-hero img { height: 300px; width: 300px; }
-  .modal-header { padding-right: 32px; text-align: center; }
+  .modal-header { text-align: center; }
 
   /* 背が高い時のはみ出し保険 */
   .modal-overlay {
@@ -747,8 +747,19 @@ html, body {
 }
 
 /* スマホ */
-@media (max-width: 820px) {
+@media (max-width: 767px) {
   .modal-body { grid-template-columns: 1fr; }
+}
+@media (min-width: 610px) and (max-width: 767px) {
+  .modal-hero img {
+    width: 40%;
+  }
+}
+@media (max-width: 609px) {
+  .modal-hero img {
+    width: 55%;
+    height: auto;
+  }
 }
 
 @media (max-width: 767px) {
@@ -773,10 +784,6 @@ html, body {
     margin: auto;
   }
 
-  .modal-hero img {
-    width: 55%;
-    height: auto;
-  }
   .kv {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
