@@ -615,6 +615,7 @@ html, body {
     gap: 0.6rem;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     touch-action: manipulation;
+    margin-top: 8px;
   }
 }
 
@@ -763,6 +764,7 @@ html, body {
 }
 
 @media (max-width: 767px) {
+  .modal-info { gap: 8px; }
   .modal-header h2 { 
     margin-bottom: 1rem;
   }
@@ -814,6 +816,41 @@ html, body {
 
   .moves ul, .abilities ul {
     gap: 4px;
+    font-size: 13px;
   }
+  .modal-actions {
+    margin-top: 0;
+  }
+  .modal-body {
+    gap: 8px;
+  }
+  .modal-body {
+    margin-top: 6px;
+  }
+  .modal-close {
+    right: 12px;
+    top: 10px;
+    font-size: 26px;
+    padding: 6px; 
+    color: #d0d6f0;
+  }
+
+  .modal-close:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  .modal-header .tags {
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .modal-header .tags .type {
+    font-size: 14px; 
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  
 }
 </style>
