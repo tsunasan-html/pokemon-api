@@ -758,7 +758,7 @@ html, body {
 }
 @media (max-width: 609px) {
   .modal-hero img {
-    width: 55%;
+    width: 50%;
     height: auto;
   }
 }
