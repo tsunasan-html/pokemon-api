@@ -779,7 +779,7 @@ html, body {
 
   .modal {
     width: 90vw;
-    padding: 12px;
+    padding: 12px 12px 14px 12px;
     border-radius: 12px;
     max-height: calc(100dvh - 32px);
     overflow: auto;
@@ -841,16 +841,15 @@ html, body {
   }
   .modal-header .tags {
     justify-content: flex-start;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   .modal-header .tags .type {
-    font-size: 14px; 
-    padding: 5px 10px;
-    border-radius: 10px;
+    font-size: 12.5px;
+    padding: 4px 8px;
+    border-radius: 8px;
   }
-  
 }
 </style>
