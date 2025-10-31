@@ -640,7 +640,6 @@ html, body {
 }
 .modal-overlay { backdrop-filter: blur(2px); }
 
-/* モーダル本体の“ふわっ” */
 .pop-enter-active, .pop-leave-active {
   transition:
     transform .22s cubic-bezier(.2,.7,.25,1),
@@ -696,8 +695,28 @@ html, body {
 }
 
 .modal-close {
-  position: absolute; right: 20px; top: 14px;
-  background: transparent; border: 0; color: #c8cde0; font-size: 20px; cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  background: transparent;
+  border: 0;
+  color: #d0d6f0;
+  font-size: 28px;         /* ← 20px → 28px に拡大 */
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px;            /* ← タップ範囲を拡大 */
+  border-radius: 8px;      /* ← ホバー時の丸みを自然に */
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.modal-close:active {
+  transform: scale(0.9);
+  opacity: 0.7;
 }
 
 .modal-header { text-align: center; }
@@ -708,7 +727,9 @@ html, body {
   display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 12px;
 }
 
-.modal-hero { display: grid; place-items: center; background:#0f1320; border-radius: 12px; padding: 12px; }
+.modal-hero { 
+  display: grid; place-items: center; background:#0f1320; border-radius: 12px; padding: 12px;
+ }
 .modal-hero img {
   object-fit: contain;
   max-width: 100%;
@@ -747,89 +768,56 @@ html, body {
   }
 }
 
-/* スマホ */
 @media (max-width: 767px) {
   .modal-body { grid-template-columns: 1fr; }
 }
-@media (min-width: 610px) and (max-width: 767px) {
-  .modal-hero img {
-    width: 40%;
-  }
-}
-@media (max-width: 609px) {
-  .modal-hero {
-      padding: 6px;
-    }
-  .modal-hero img {
-    width: 50%;
-    height: auto;
-  }
-}
-
+/* ====== SP: max-width 767px（幅感＋縦長対策入り） ====== */
 @media (max-width: 767px) {
-  .modal-info { gap: 8px; }
-  .modal-header h2 { 
-    margin-bottom: 1rem;
+  :root {
+    --sp-pad: clamp(10px, 4vw, 16px);
+    --sp-radius: 14px;
   }
+
+  .modal-info { gap: 8px; }
+
+  .modal-header h2 { 
+    margin-bottom: 0.8rem;
+  }
+
+  .modal-header .tags {
+    justify-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .modal-header .tags .type {
+    font-size: 12.5px;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
   .modal-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100dvh;
-    height: 100svh;
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding:
+      max(var(--sp-pad), env(safe-area-inset-top))
+      var(--sp-pad)
+      max(calc(var(--sp-pad) + env(safe-area-inset-bottom)), var(--sp-pad));
     overflow: auto;
   }
 
   .modal {
-    width: 90vw;
-    padding: 12px 12px 14px 12px;
-    border-radius: 12px;
-    max-height: calc(100dvh - 32px);
+    box-sizing: border-box;
+    inline-size: min(560px, 100%);
+    margin-inline: auto;
+    padding: clamp(12px, 3.5vw, 16px);
+    border-radius: var(--sp-radius);
+    max-block-size: calc(100svh - 2 * var(--sp-pad));
     overflow: auto;
-    margin: auto;
+    box-shadow: 0 10px 36px rgba(0,0,0,.45);
   }
 
-  .kv {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-  }
-
-  .kv li {
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 13px;
-  }
-
-  .kv b {
-    font-size: 13px;
-  }
-
-  .kv span {
-    font-size: 13px;
-  }
-
-  .abilities, .moves {
-    padding: 8px;
-  }
-
-  .abilities h3, .moves h3 {
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
-
-  .moves ul, .abilities ul {
-    gap: 4px;
-    font-size: 13px;
-  }
-  .modal-actions {
-    margin-top: 0;
-  }
-  .modal-body {
-    gap: 8px;
-  }
-  .modal-body {
-    margin-top: 6px;
-  }
   .modal-close {
     right: 12px;
     top: 10px;
@@ -838,21 +826,76 @@ html, body {
     color: #d0d6f0;
   }
 
-  .modal-close:active {
-    transform: scale(0.9);
-    opacity: 0.8;
-  }
-  .modal-header .tags {
-    justify-content: flex-start;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 4px;
+  .modal-body { 
+    grid-template-columns: 1fr; 
+    gap: clamp(6px, 2vw, 10px);
+    margin-top: clamp(6px, 2vw, 10px);
   }
 
-  .modal-header .tags .type {
-    font-size: 12.5px;
-    padding: 4px 8px;
+  .modal-hero {
+    padding: clamp(6px, 2.5vw, 12px);
+    display: grid; place-items: center;
+    background:#0f1320; border-radius: 12px;
+  }
+  .modal-hero img {
+    inline-size: clamp(180px, 50vw, 320px); /* 画像主役なら 55vw に */
+    height: auto;
+    max-block-size: clamp(140px, 32svh, 220px); /* ← 縦長対策：高さ上限 */
+    object-fit: contain;
+  }
+
+  .kv {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .kv li {
+    padding: 6px 8px;
     border-radius: 8px;
+    font-size: 13px;
+  }
+  .kv b,
+  .kv span { font-size: 13px; }
+
+  .abilities, .moves {
+    padding: 8px;
+    text-align: center;
+    background:#0f1320; border:1px solid #222b42; border-radius:8px;
+  }
+  .abilities h3, .moves h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color:#cfd6ee;
+  }
+  .moves ul, .abilities ul {
+    gap: 4px;
+    font-size: 13px;
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .modal-actions { margin-top: 0; }
+}
+
+@media (max-width: 767px) and (max-height: 720px) {
+  .modal-hero img {
+    inline-size: clamp(160px, 46vw, 280px);
+    max-block-size: clamp(120px, 28svh, 200px);
+  }
+  .modal-header h2 { margin-bottom: 0.6rem; }
+  .modal-body { gap: 6px; margin-top: 6px; }
+  .kv { gap: 5px; }
+  .kv li { padding: 5px 7px; font-size: 12.5px; }
+}
+
+@media (max-width: 767px) and (max-height: 640px) {
+  .kv { grid-template-columns: 1fr; }
+  .moves ul, .abilities ul { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .modal-hero img {
+    inline-size: clamp(120px, 32vw, 220px);
+    max-block-size: 24svh;
   }
 }
 </style>
