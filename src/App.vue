@@ -820,7 +820,7 @@ html, body {
 
   .modal-close {
     right: 12px;
-    top: 10px;
+    top: 9px;
     font-size: 26px;
     padding: 6px; 
     color: #d0d6f0;
