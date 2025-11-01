@@ -12,7 +12,7 @@
       </div>
 
       <div class="image-wrap">
-        <img :src="pokemon.image" :alt="pokemon.name" loading="lazy" />
+        <img :src="pokemon.image || require('@/assets/no-image.svg')" :alt="pokemon.name" loading="lazy" />
       </div>
 
       <div class="types">

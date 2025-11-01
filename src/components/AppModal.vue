@@ -12,7 +12,7 @@
   
     <div class="modal-body">
       <div class="modal-hero">
-        <img :src="selected?.image" :alt="selected?.name" />
+        <img :src="selected?.image || require('@/assets/no-image.svg')" :alt="selected?.name" />
       </div>
     
       <div class="modal-info">
