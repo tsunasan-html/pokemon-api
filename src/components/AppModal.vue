@@ -37,9 +37,9 @@
         <div class="moves" v-if="(details?.moves || []).length">
           <h3>Moves</h3>
           <ul>
-            <li v-for="mv in details.moves.slice(0, 4)" :key="mv.move.name">{{ mv.move.name }}</li>
+            <li v-for="mv in details.moves.slice(0, 6)" :key="mv.move.name">{{ mv.move.name }}</li>
           </ul>
-          <small>…and {{ Math.max(0, details.moves.length - 4) }} more</small>
+          <small>…and {{ Math.max(0, details.moves.length - 6) }} more</small>
         </div>
       </div>
     </div>
