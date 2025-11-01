@@ -97,7 +97,7 @@ export default {
         const listRes = await fetch(listUrl)
         
         if (listRes.status !== 200) {
-          throw new Error(`List HTTP ${listRes.status}`);
+          throw new Error(listRes.status);
         }
         // 一度APIを叩いて、各ポケモンの詳細URL（エンドポイント一覧）を取得
         const listData = await listRes.json()
@@ -108,7 +108,7 @@ export default {
             const res = await fetch(item.url)
 
             if (res.status !== 200) {
-              throw new Error(`List HTTP ${listRes.status}`);
+              throw new Error(res.status);
             }
 
             const detail = await res.json()
