@@ -697,7 +697,7 @@ html, body {
 .modal-close {
   position: absolute;
   right: 16px;
-  top: 12px;
+  top: 10px;
   background: transparent;
   border: 0;
   color: #d0d6f0;
